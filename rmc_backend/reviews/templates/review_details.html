@@ -1,0 +1,17 @@
+<!-- csrf_init.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Init</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+    </form>
+    <script>
+        window.location.href = "http://localhost:3000";  <!-- Redirect to your React app -->
+    </script>
+</body>
+</html>

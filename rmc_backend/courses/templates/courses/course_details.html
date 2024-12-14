@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ course.course_code }} - {{ course.course_name }}</title>
+  </head>
+  <body>
+    <div class="course-info">
+      <h2>{{ course.course_code }} - {{ course.course_name }}</h2>
+      <div class="course-stats">
+        <h3>
+          Average Overall Rating: {{ average_overall_rating|floatformat:2 }}/5
+        </h3>
+        <h3>
+          Average Difficulty Rating: {{ average_difficulty_rating|floatformat:2
+          }}/5
+        </h3>
+        <h3>Retake %: {{ retake_percentage|floatformat:2 }}%</h3>
+      </div>
+      <h3>Overall Rating Distribution:</h3>
+      <div class="rating-distribution">
+        {% for rating, count in rating_distribution.items %}
+        <div class="rating-bar">
+          <div class="rating-label">{{ rating }}/5</div>
+          <div class="bar-container">
+            <div
+              class="bar-fill"
+              style="width: {{ count }}%; background-color: #12406B;"
+            ></div>
+            <div class="count-label">{{ count }}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="reviews">
+        <h3>Reviews</h3>
+        {% for review in reviews %}
+        <div class="review">
+          <p class="professor"><strong>{{ review.professor }}</strong></p>
+          <p class="semester"><strong>{{ review.semester }}</strong></p>
+          <p>{{ review.description }}</p>
+        </div>
+        {% empty %}
+        <p>No reviews available.</p>
+        {% endfor %}
+      </div>
+
+      <form method="POST">
+        {% csrf_token %}
+        <!-- Include your form fields here -->
+        <button type="submit">Submit Review</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+# Python bytecode
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django-specific
+*.log
+db.sqlite3
+db.sqlite3-journal
+
+# Environment variables
+.env
+
+# Virtual environment
+venv/
+env/
+*.venv
+*.env
+virtualenv/
+rmc_env/
+
+# Static files
+staticfiles/
+static/
+
+# Media files
+media/
+
+# Runtime files
+*.pid
+*.sock
+gunicorn.sock
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*.swd
+
+# Node modules (if using for frontend assets in the backend)
+node_modules/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
